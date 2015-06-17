@@ -23,6 +23,7 @@ if (!file.exists(fileRL)) {
 } else {
     print("Data already unzipped.")
 }
+#Manual addition to the file
 
 #this will be deleted later.
 # Read the data into a data table assuming it doesn't already exists.
