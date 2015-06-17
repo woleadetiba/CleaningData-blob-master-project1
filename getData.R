@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 #library(data.table)
-=======
-library(data.table)
->>>>>>> 3ca6ad310bc40d2bc84a8a8981582ff3b349584e
 library(chron)
 
 if (!file.exists("data")) {
@@ -12,40 +8,25 @@ if (!file.exists("data")) {
 
 # Data from the UC Irvine Machine Learning Repository. In particular, the
 # “Individual household electric power consumption Data Set” [20MB]
-<<<<<<< HEAD
 dataURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 zipRL <- "./data/UCI-HAR-Dataset.zip"
-# Only download the data if we don't already have it.
-if (!file.exists(zipRL) ) {
-    download.file(dataURL, destfile=zipRL, method="curl")
-} else {
-    print("Data already exists. Skipping fetch from internet.")
-} 
-
-# Unzip the data if we haven't already.
-fileRL="./data/UCI HAR Dataset/README.txt"
-=======
-dataURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
-zipRL <- "./data/hhpc.zip"
-fileRL <- "./data/household_power_consumption.txt"
 # Only download the data if we don't already have it.
 if (!file.exists(zipRL) & !file.exists(fileRL)) {
     download.file(dataURL, destfile=zipRL, method="curl")
 } else {
     print("Data already exists. Skipping fetch from internet.")
 }
-
 # Unzip the data if we haven't already.
->>>>>>> 3ca6ad310bc40d2bc84a8a8981582ff3b349584e
+fileRL <- "./data/UCI HAR Dataset/README.txt"
 if (!file.exists(fileRL)) {
     unzip(zipRL, exdir="./data/.")
 } else {
     print("Data already unzipped.")
 }
 
+#this will be deleted later.
 # Read the data into a data table assuming it doesn't already exists.
 #fileRL <- "./data/test.txt"
-<<<<<<< HEAD
 # if (!exists("data_table")){
 #     data_table <- fread(fileRL, na.strings=c("?"), sep=";", colClasses="character")
 # 
@@ -70,29 +51,3 @@ if (!file.exists(fileRL)) {
 # } else {
 #     print("Data table in variable 'data_table' appears to already exists. Skipping read.")
 # }
-=======
-if (!exists("data_table")){
-    data_table <- fread(fileRL, na.strings=c("?"), sep=";", colClasses="character")
-
-    # I tried specifying the column classes up front, but couldn't get it to be happy.
-    data_table <- within(data_table, Date <- as.Date(Date, format="%d/%m/%Y"))
-    data_table <- within(data_table, Time <- chron(times=Time))
-    data_table <- within(data_table, Global_active_power <- as.numeric(Global_active_power))
-    data_table <- within(data_table, Global_reactive_power <- as.numeric(Global_reactive_power))
-    data_table <- within(data_table, Voltage <- as.numeric(Voltage))
-    data_table <- within(data_table, Global_intensity <- as.numeric(Global_intensity))
-    data_table <- within(data_table, Sub_metering_1 <- as.numeric(Sub_metering_1))
-    data_table <- within(data_table, Sub_metering_2 <- as.numeric(Sub_metering_2))
-    data_table <- within(data_table, Sub_metering_3 <- as.numeric(Sub_metering_3))
-
-    # We're only interested in the data over these two days so subset it.
-    selection <- which(data_table$Date == '2007-02-01' |
-                       data_table$Date == '2007-02-02')
-    data_table <- data_table[selection, ]
-
-    # Useful new column combining Date and Time.
-    data_table[, c("DateTime") := as.POSIXct(paste(Date, Time))]
-} else {
-    print("Data table in variable 'data_table' appears to already exists. Skipping read.")
-}
->>>>>>> 3ca6ad310bc40d2bc84a8a8981582ff3b349584e
