@@ -5,7 +5,7 @@ if (!file.exists("data")) {
     print("Creating data directory.")
     dir.create("data")
 }
-
+ 
 # Data from the UC Irvine Machine Learning Repository. In particular, the
 # “Individual household electric power consumption Data Set” [20MB]
 dataURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
