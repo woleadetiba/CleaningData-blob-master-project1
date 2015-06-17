@@ -15,7 +15,7 @@ if (!file.exists(zipRL) ) {
     download.file(dataURL, destfile=zipRL, method="curl")
 } else {
     print("Data already exists. Skipping fetch from internet.")
-}
+} 
 
 # Unzip the data if we haven't already.
 fileRL="./data/UCI HAR Dataset/README.txt"
