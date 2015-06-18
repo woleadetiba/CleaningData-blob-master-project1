@@ -14,4 +14,4 @@ The submitted run_analysis.R can be put in any location.
 Location of this file must be used to setting the working directory in RStudio, using command, setwd("<<location ofrun_analysis.R >>")
 To load the file, source("run_analysis.R") must be run. 
 
-Results: Cleaned data text file (merged_and_cleaned.txt) and data set with averages text file (data_set_with_the_averages.txt.txt) are generated and kept in the working directory
+Results: Cleaned data text file (merged_and_cleaned.txt) and data set with averages text file (data_set_with_the_averages.txt) are generated and kept in the working directory
