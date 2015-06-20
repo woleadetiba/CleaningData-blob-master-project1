@@ -1,6 +1,6 @@
 library(chron)
-install.packages("dyplr")
-library(dyplr)
+install.packages("dplyr")
+library(dplyr)
 
 
 if (!file.exists("data")) {
