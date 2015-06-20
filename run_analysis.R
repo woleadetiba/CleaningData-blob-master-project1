@@ -1,4 +1,6 @@
 library(chron)
+library(dyplr)
+
 
 if (!file.exists("data")) {
   print("Creating data directory.")
