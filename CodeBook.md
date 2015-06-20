@@ -36,4 +36,4 @@ X_Train and X_Text data are read and merged together using rbind function. Subje
 
 cbind is used to merge X, Y and S data together. The merged record is written to the output file (merged_and_cleaned.txt), as required by the project.
 
-Dyplr package feature is used for further proceesing of merged records to obtain the mean for each of the columns of the observations. The output of this is written to the file, (data_set_with_the_averages.txt)
+dplyr package feature is used for further proceesing of merged records to obtain the mean for each of the columns of the observations. The output of this is written to the file, (data_set_with_the_averages.txt)
